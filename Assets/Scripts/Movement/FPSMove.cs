@@ -2,66 +2,40 @@ using UnityEngine;
 using System.Collections;
 
 public class FPSMove : MonoBehaviour {
-
+	//walking vars
 	public float walk_speed = 5;
-	public float jump_height = 400;
-	public float run_speed = 2;
-	
-	public float gravity = 980;
-	
-	public Vector3 MoveDirection = Vector3.zero;
-	public CharacterController Controller;
-		
-	private Vector3 camera_forward;
-	private Vector3 camera_right;
-	private bool grounded = true;
-	private float ground_distance;
+	public float run_multiplier = 2;
+	public float crouch_multiplier = 0.5f;
 	private float last_forward = -1.0F;
 	private bool running = false;
 	
+	//jumping vars
+	public float jump_height = 400;
+	public float gravity = 9.81f;
+	private bool grounded = true;
+	private bool jumping = false;
+	private float move_y;
+	
+	//crouching vars
+	public float crouch_height = 0.5f;
+	private float normal_height;
+	private bool crouching = false;
+	
+	//character movement vars
+	public Vector3 MoveDirection = Vector3.zero;
+	public CharacterController Controller;
+		
 	void Start() {
-
+		normal_height = Controller.height;	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		MoveDirection = Camera.main.transform.forward * Input.GetAxis("Vertical") + Camera.main.transform.right * Input.GetAxis ("Horizontal");
-		MoveDirection = transform.TransformDirection(MoveDirection);
-		if(grounded) {
-			MoveDirection *= walk_speed;
-			if(Input.GetKey(KeyCode.Space))
-				this.rigidbody.AddForce(Vector3.up * jump_height);
-			
-		}
-		
-		MoveDirection.y -= gravity * Time.deltaTime;
-		CollisionFlags flags = Controller.Move(MoveDirection * Time.deltaTime);
-		grounded = (flags & CollisionFlags.CollidedBelow) != 0;
-		
-		/*
-		float horizontal = Input.GetAxis("Horizontal");
-		float vertical = Input.GetAxis("Vertical");
-		float current_run_speed = 1;
-		
-		Vector3 current = this.transform.position;
-		
-		camera_forward = Camera.main.transform.forward;
-		camera_right = Camera.main.transform.right;
-		camera_forward.y = 0;
-		
-		//jumping code
-		if (Input.GetKeyDown(KeyCode.Space) && this.rigidbody) {
-			if(Physics.Raycast(transform.position, -Vector3.up, ground_distance + 0.1F)) {
-				this.rigidbody.AddForce(Vector3.up * jump_height);
-			}
-		}
-		
-		//running code (forward only)
+		//handle running
 		if(Input.GetKeyUp(KeyCode.W)) {
 			last_forward = Time.time;
 			running = false;
 		}
-		
 		if(Input.GetKeyDown (KeyCode.W)) {
 			if(Time.time - last_forward < 0.2F) {
 				running = true;
@@ -69,13 +43,38 @@ public class FPSMove : MonoBehaviour {
 			last_forward = Time.time;
 		}
 		
-		if(running) current_run_speed = run_speed;
-			
-		//current += (camera_right * horizontal + camera_forward * vertical * current_run_speed) * walk_speed * Time.deltaTime;
-		//this.transform.position = current;
+		//handle crouching
+		if(Input.GetKeyDown (KeyCode.LeftShift)) {
+			Controller.height = Controller.height * crouch_height;
+			crouching = true;
+			running = false;
+		}
+		if(Input.GetKeyUp (KeyCode.LeftShift)) {
+			Controller.height = normal_height;
+			crouching = false;
+			Vector3 temp = this.transform.position;
+			temp.y += Controller.height * crouch_height + 0.5f;
+			this.transform.position = temp;
+		}
 		
-		
-		this.rigidbody.AddForce ((camera_right * horizontal + camera_forward * vertical * current_run_speed) * walk_speed * Time.deltaTime);
-		*/
+		//movement
+		MoveDirection = Camera.main.transform.forward * Input.GetAxis("Vertical") + Camera.main.transform.right * Input.GetAxis ("Horizontal");
+		MoveDirection = transform.TransformDirection(MoveDirection);
+		//Move the player by the walk speed
+		MoveDirection *= walk_speed;
+		//if the player is running multiply by the multiplier
+		if(crouching) MoveDirection *= crouch_multiplier;
+		else if(running) MoveDirection *= run_multiplier;
+		if(grounded) if(Input.GetKey(KeyCode.Space)) jumping = true;
+		//jumping, etc
+		if(jumping) MoveDirection.y += jump_height*Time.deltaTime;		
+		move_y -= gravity * Time.deltaTime;
+		MoveDirection.y += move_y;
+		CollisionFlags flags = Controller.Move(MoveDirection * Time.deltaTime);
+		grounded = (flags & CollisionFlags.CollidedBelow) != 0;
+		if(grounded) {
+			move_y = 0;
+			jumping = false;
+		}
 	}
 }

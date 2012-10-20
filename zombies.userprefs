@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Movement\FPSMove.cs">
     <Files>
-      <File FileName="Assets\Scripts\Movement\FPSMove.cs" Line="30" Column="8" />
-      <File FileName="Assets\Scripts\Movement\FPSLook.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\Movement\FPSLook.cs" Line="15" Column="16" />
+      <File FileName="Assets\Scripts\Movement\FPSMove.cs" Line="69" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
