@@ -62,11 +62,20 @@ public class FPSMove : MonoBehaviour {
 		
 		//movement
 		Vector3 forward = Camera.main.transform.forward;
-		forward.y = 0;
+		Vector3 movement_vector;
 		forward = forward.normalized;
-		forward *= Camera.main.transform.forward.magnitude;
+		RaycastHit ground;
+		if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out ground, Controller.height)) {
+			Vector3 ground_normal = ground.normal.normalized;
+			movement_vector = Vector3.Cross(Vector3.Cross(ground_normal, forward), ground_normal).normalized;
+		} else {
+			movement_vector = forward;
+		}
+		movement_vector *= Camera.main.transform.forward.magnitude;
 		
-		MoveDirection = forward * Input.GetAxis("Vertical") + Camera.main.transform.right * Input.GetAxis ("Horizontal");
+		
+		
+		MoveDirection = movement_vector * Input.GetAxis("Vertical") + Camera.main.transform.right * Input.GetAxis ("Horizontal");
 		MoveDirection = transform.TransformDirection(MoveDirection);
 		//Move the player by the walk speed
 		MoveDirection *= walk_speed;
