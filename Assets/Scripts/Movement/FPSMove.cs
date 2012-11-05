@@ -65,7 +65,7 @@ public class FPSMove : MonoBehaviour {
 		Vector3 movement_vector;
 		forward = forward.normalized;
 		RaycastHit ground;
-		if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out ground, Controller.height)) {
+		if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out ground, Controller.height+0.5f)) {
 			Vector3 ground_normal = ground.normal.normalized;
 			movement_vector = Vector3.Cross(Vector3.Cross(ground_normal, forward), ground_normal).normalized;
 		} else {
