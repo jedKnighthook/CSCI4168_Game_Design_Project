@@ -46,6 +46,9 @@ public class FPSMove : MonoBehaviour {
 		//handle crouching
 		if(Input.GetKeyDown (KeyCode.LeftShift)) {
 			Controller.height = Controller.height * crouch_height;
+			Vector3 temp = this.transform.position;
+			temp.y -= Controller.height * crouch_height + 0.5f;
+			
 			crouching = true;
 			running = false;
 		}
@@ -58,7 +61,21 @@ public class FPSMove : MonoBehaviour {
 		}
 		
 		//movement
-		MoveDirection = Camera.main.transform.forward * Input.GetAxis("Vertical") + Camera.main.transform.right * Input.GetAxis ("Horizontal");
+		Vector3 forward = Camera.main.transform.forward;
+		Vector3 movement_vector;
+		forward = forward.normalized;
+		RaycastHit ground;
+		if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out ground, Controller.height+0.5f)) {
+			Vector3 ground_normal = ground.normal.normalized;
+			movement_vector = Vector3.Cross(Vector3.Cross(ground_normal, forward), ground_normal).normalized;
+		} else {
+			movement_vector = forward;
+		}
+		movement_vector *= Camera.main.transform.forward.magnitude;
+		
+		
+		
+		MoveDirection = movement_vector * Input.GetAxis("Vertical") + Camera.main.transform.right * Input.GetAxis ("Horizontal");
 		MoveDirection = transform.TransformDirection(MoveDirection);
 		//Move the player by the walk speed
 		MoveDirection *= walk_speed;

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Assets\MixamoAnimationStore\MixamoStoreWindow.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\Behave\BehaveAsset.cs" />
      <Compile Include="Assets\Scripts\AI\AiAttack.cs" />
      <Compile Include="Assets\Scripts\AI\AiMove.cs" />
@@ -103,6 +104,13 @@
  <Reference Include="ZombieBehaveLibraryBuild">
  <HintPath>Assets\ZombieBehaveLibraryBuild.dll</HintPath>
  </Reference>
+=======
+     <Compile Include="Assets\Scripts\Interactable.cs" />
+     <Compile Include="Assets\Scripts\Movement\FPSLook.cs" />
+     <Compile Include="Assets\Scripts\Movement\FPSMove.cs" />
+     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
+     <None Include="Assets\Assets\CustomizableGun_FreeED\readme.txt" />
+>>>>>>> 33cff1b9b192d4e24b9de4d8e64692117057d336
  <Reference Include="unity-mixamo-store-lib">
  <HintPath>Assets\Assets\MixamoAnimationStore\unity-mixamo-store-lib.dll</HintPath>
  </Reference>
