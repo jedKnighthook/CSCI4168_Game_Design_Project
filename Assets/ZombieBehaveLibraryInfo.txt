@@ -1,0 +1,25 @@
+Library class:
+BLZombieBehaveLibrary
+
+Trees:
+	ZombieAI_ZombieBehaviorPatterns
+	Unknown
+
+Contexts:
+	MainZombieBehivior
+	Unknown
+
+Branch priority groups:
+	Unknown
+
+Actions (4: 1 - 5):
+	Attack_Player (1)
+	Move_To_Target (2)
+	Idle (3)
+	Wander (4)
+	Unknown (5)
+
+Decorators (0: 6 - 6):
+	Unknown (6)
+
+Agent classes:
