@@ -110,6 +110,10 @@
      <Compile Include="Assets\Scripts\Movement\FPSLook.cs" />
      <Compile Include="Assets\Scripts\Movement\FPSMove.cs" />
      <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
+     <Compile Include="Assets\ZombieRunner\AnimationRun.cs" />
+     <Compile Include="Assets\ZombieWalker\AnimationWalk.cs" />
+     <Compile Include="Assets\ZombieWalker\zombieAnimationChoice.cs" />
+     <Compile Include="Assets\ZombieWalker2\AnimationWalk2.cs" />
      <None Include="Assets\Assets\CustomizableGun_FreeED\readme.txt" />
 >>>>>>> 33cff1b9b192d4e24b9de4d8e64692117057d336
 =======
