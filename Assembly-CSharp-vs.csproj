@@ -49,6 +49,10 @@
      <Compile Include="Assets\Scripts\Movement\FPSLook.cs" />
      <Compile Include="Assets\Scripts\Movement\FPSMove.cs" />
      <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
+     <Compile Include="Assets\ZombieRunner\AnimationRun.cs" />
+     <Compile Include="Assets\ZombieWalker\AnimationWalk.cs" />
+     <Compile Include="Assets\ZombieWalker\zombieAnimationChoice.cs" />
+     <Compile Include="Assets\ZombieWalker2\AnimationWalk2.cs" />
      <None Include="Assets\Assets\CustomizableGun_FreeED\readme.txt" />
  <Reference Include="unity-mixamo-store-lib">
  <HintPath>Assets\Assets\MixamoAnimationStore\unity-mixamo-store-lib.dll</HintPath>
