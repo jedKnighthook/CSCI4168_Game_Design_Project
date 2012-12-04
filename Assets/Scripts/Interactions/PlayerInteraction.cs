@@ -10,6 +10,8 @@ public class PlayerInteraction : MonoBehaviour {
 	private Ray interaction;
 	private RaycastHit hitInfo;
 	
+	private bool interacting;
+	
 	// Update is called once per frame
 	void Update () {
 		// Remember the last interactable thing the player was looking at
@@ -22,14 +24,30 @@ public class PlayerInteraction : MonoBehaviour {
 			if(interactable) {
 				// If we are looking at something for the first time call OnHover()
 				if(lastInteractable != interactable) {
+					if(lastInteractable != null) {
+						lastInteractable.OnHoverStop();
+						if(interacting) {
+							interacting = false;
+							lastInteractable.OnInteractStop();
+						}
+					}
 					Debug.Log("OnHover()");
 					interactable.OnHover();
 				}
 				
+				// If we are looking at something and we're not pressing E, clear interacting
+				if(!Input.GetKey(KeyCode.E)) {
+					Debug.Log("OnInteractStop()");
+					lastInteractable.OnInteractStop();
+					interactable.OnInteractStop();
+				}
+				
 				// If we are looking at something and pressing the interaction button call OnInteract()
-				if(Input.GetKey(KeyCode.E)) {
+				if(Input.GetKey(KeyCode.E) && interacting) {
 					Debug.Log("OnInteract()");
 					interactable.OnInteract();
+				} else if(Input.GetKey(KeyCode.E) && !interacting) {
+					
 				}
 			} else {
 				// If we found something non interactive set interactable to null
