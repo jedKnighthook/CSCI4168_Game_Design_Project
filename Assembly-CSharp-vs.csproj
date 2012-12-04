@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{90E2DA3A-5FFA-788D-84A2-BF8B207D6BEB}</ProjectGuid>
+	<ProjectGuid>{07C1D01B-FAD6-43FB-5AAA-C14DE898B8B6}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -37,21 +37,21 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Programs/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Programs/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Assets\MixamoAnimationStore\MixamoStoreWindow.cs" />
-<<<<<<< HEAD
-<<<<<<< HEAD
      <Compile Include="Assets\Behave\BehaveAsset.cs" />
      <Compile Include="Assets\Scripts\AI\AiAttack.cs" />
      <Compile Include="Assets\Scripts\AI\AiMove.cs" />
+     <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\Movement\FPSLook.cs" />
      <Compile Include="Assets\Scripts\Movement\FPSMove.cs" />
+     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
      <Compile Include="Assets\Spawner\Example\Script\RandomMover.cs" />
      <Compile Include="Assets\Spawner\Example\Script\SpawnViewer.cs" />
      <Compile Include="Assets\Spawner\Scripts\ISpawnable.cs" />
@@ -94,9 +94,14 @@
      <Compile Include="Assets\UnitySteer\UnderReview\SteeringVehicle.cs" />
      <Compile Include="Assets\UnitySteer\UnderReview\lq.cs" />
      <Compile Include="Assets\UnitySteer\UnderReview\lqProximity.cs" />
+     <Compile Include="Assets\ZombieRunner\AnimationRun.cs" />
+     <Compile Include="Assets\ZombieWalker\AnimationWalk.cs" />
+     <Compile Include="Assets\ZombieWalker\zombieAnimationChoice.cs" />
+     <Compile Include="Assets\ZombieWalker2\AnimationWalk2.cs" />
      <None Include="Assets\Behave\Changelog.txt" />
      <None Include="Assets\Path\License.txt" />
      <None Include="Assets\UnitySteer\License.txt" />
+     <None Include="Assets\Assets\CustomizableGun_FreeED\readme.txt" />
      <None Include="Assets\ZombieBehaveLibraryInfo.txt" />
      <None Include="Assets\UnitySteer\C5\LICENSE.txt" />
      <None Include="Assets\Behave\Readme.txt" />
@@ -105,24 +110,6 @@
  <Reference Include="ZombieBehaveLibraryBuild">
  <HintPath>Assets\ZombieBehaveLibraryBuild.dll</HintPath>
  </Reference>
-=======
-     <Compile Include="Assets\Scripts\Interactable.cs" />
-     <Compile Include="Assets\Scripts\Movement\FPSLook.cs" />
-     <Compile Include="Assets\Scripts\Movement\FPSMove.cs" />
-     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
-     <Compile Include="Assets\ZombieRunner\AnimationRun.cs" />
-     <Compile Include="Assets\ZombieWalker\AnimationWalk.cs" />
-     <Compile Include="Assets\ZombieWalker\zombieAnimationChoice.cs" />
-     <Compile Include="Assets\ZombieWalker2\AnimationWalk2.cs" />
-     <None Include="Assets\Assets\CustomizableGun_FreeED\readme.txt" />
->>>>>>> 33cff1b9b192d4e24b9de4d8e64692117057d336
-=======
-     <Compile Include="Assets\Scripts\Interactable.cs" />
-     <Compile Include="Assets\Scripts\Movement\FPSLook.cs" />
-     <Compile Include="Assets\Scripts\Movement\FPSMove.cs" />
-     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
-     <None Include="Assets\Assets\CustomizableGun_FreeED\readme.txt" />
->>>>>>> 33cff1b9b192d4e24b9de4d8e64692117057d336
  <Reference Include="unity-mixamo-store-lib">
  <HintPath>Assets\Assets\MixamoAnimationStore\unity-mixamo-store-lib.dll</HintPath>
  </Reference>

@@ -45,9 +45,35 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Assets\CustomizableGun_FreeED\Scripts\CharacterViewerRotate.js" />
+     <None Include="Assets\Behave\Changelog.txt" />
+     <None Include="Assets\Path\License.txt" />
+     <None Include="Assets\UnitySteer\License.txt" />
      <None Include="Assets\Assets\CustomizableGun_FreeED\readme.txt" />
+     <None Include="Assets\ZombieBehaveLibraryInfo.txt" />
+     <None Include="Assets\UnitySteer\C5\LICENSE.txt" />
+     <None Include="Assets\Behave\Readme.txt" />
+     <None Include="Assets\Behave\License.txt" />
+     <None Include="Assets\Spawner\README!!.txt" />
+ <Reference Include="ZombieBehaveLibraryBuild">
+ <HintPath>Assets\ZombieBehaveLibraryBuild.dll</HintPath>
+ </Reference>
  <Reference Include="unity-mixamo-store-lib">
  <HintPath>Assets\Assets\MixamoAnimationStore\unity-mixamo-store-lib.dll</HintPath>
+ </Reference>
+ <Reference Include="Behave.Unity.Assets">
+ <HintPath>Assets\Behave\Behave.Unity.Assets.dll</HintPath>
+ </Reference>
+ <Reference Include="Behave.Unity.Runtime">
+ <HintPath>Assets\Behave\Behave.Unity.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Behave">
+ <HintPath>Assets\Behave\Compatibility\Behave.dll</HintPath>
+ </Reference>
+ <Reference Include="Path.Runtime">
+ <HintPath>Assets\Path\Path.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="C5">
+ <HintPath>Assets\UnitySteer\C5\C5.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
