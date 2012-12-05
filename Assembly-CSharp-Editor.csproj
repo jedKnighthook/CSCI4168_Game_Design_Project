@@ -60,12 +60,17 @@
      <Compile Include="Assets\UnitySteer\Editor\Vector3FoldoutEditor.cs" />
      <Compile Include="Assets\UnitySteer\Editor\VehicleEditor.cs" />
      <None Include="Assets\Behave\Changelog.txt" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Path\License.txt" />
      <None Include="Assets\UnitySteer\License.txt" />
+     <None Include="Assets\Shaders\BackgroundAndCharacters\ReflectiveBackgroundSelfIllumination.shader" />
      <None Include="Assets\Assets\CustomizableGun_FreeED\readme.txt" />
      <None Include="Assets\ZombieBehaveLibraryInfo.txt" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\UnitySteer\C5\LICENSE.txt" />
      <None Include="Assets\Behave\Readme.txt" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
      <None Include="Assets\Behave\License.txt" />
      <None Include="Assets\Spawner\README!!.txt" />
  <Reference Include="ZombieBehaveLibraryBuild">
