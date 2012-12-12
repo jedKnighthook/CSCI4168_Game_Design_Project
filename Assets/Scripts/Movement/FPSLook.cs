@@ -8,8 +8,8 @@ public class FPSLook : MonoBehaviour {
 	private float rotationX = 0F;
     private float rotationY = 0F;
 	
-	private float maxY = 89F;
-	private float minY = -89F;
+	private float maxY = 75F;
+	private float minY = -75F;
 	
 	// Update is called once per frame
 	void Update () {
