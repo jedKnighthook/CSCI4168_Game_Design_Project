@@ -11,7 +11,7 @@ public class FPSMove : MonoBehaviour {
 	
 	//jumping vars
 	public float jump_height = 400;
-	public float gravity = 9.81f;
+	public float gravity = 98.1f;
 	private bool grounded = true;
 	private bool jumping = false;
 	private float move_y;
@@ -56,18 +56,19 @@ public class FPSMove : MonoBehaviour {
 			Controller.height = normal_height;
 			crouching = false;
 			Vector3 temp = this.transform.position;
-			temp.y += Controller.height * crouch_height + 0.5f;
+			temp.y += Controller.height * crouch_height + 6.5f;
 			this.transform.position = temp;
 		}
 		
 		//movement
-		Vector3 forward = Camera.main.transform.forward;
+		Vector3 forward = -Camera.main.transform.forward;
 		Vector3 movement_vector;
 		forward = forward.normalized;
 		RaycastHit ground;
-		if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out ground, Controller.height+0.5f)) {
+		if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out ground, Controller.height+6.5f)) {
 			Vector3 ground_normal = ground.normal.normalized;
 			movement_vector = Vector3.Cross(Vector3.Cross(ground_normal, forward), ground_normal).normalized;
+			Debug.Log ("in here...");
 		} else {
 			movement_vector = forward;
 		}
@@ -75,7 +76,7 @@ public class FPSMove : MonoBehaviour {
 		
 		
 		
-		MoveDirection = movement_vector * Input.GetAxis("Vertical") + Camera.main.transform.right * Input.GetAxis ("Horizontal");
+		MoveDirection = movement_vector * Input.GetAxis("Vertical") - Camera.main.transform.right * Input.GetAxis ("Horizontal");
 		MoveDirection = transform.TransformDirection(MoveDirection);
 		//Move the player by the walk speed
 		MoveDirection *= walk_speed;
